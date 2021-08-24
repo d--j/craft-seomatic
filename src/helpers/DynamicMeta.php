@@ -679,6 +679,7 @@ class DynamicMeta
                             if ($fieldMetaBundle !== null && $seoSettingsField !== null && $seoSettingsField->sitemapTabEnabled) {
                                 // If sitemaps are off for this entry, don't include the URL
                                 if (\in_array('sitemapUrls', $seoSettingsField->sitemapEnabledFields, false)
+                                    && !Seomatic::$plugin->helper->isInherited($fieldMetaBundle->metaSitemapVars, 'sitemapUrls')
                                     && !$fieldMetaBundle->metaSitemapVars->sitemapUrls
                                 ) {
                                     $includeUrl = false;
